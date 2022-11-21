@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/index.css">
+    <title>Star Wars Database</title>
+</head>
+<body>
+    <div class="audio_play">
+        <img id="play" src="https://cdn-icons-png.flaticon.com/512/727/727240.png" onclick="play()">
+    </div>
+    <div class="flex-col">
+        <div id="logo">
+            <img src="https://cdn.worldvectorlogo.com/logos/star-wars.svg" alt="">
+        </div>
+        <div class="search_box">
+            <div class="flex-row">
+                <div class="input_box">
+                    <form action="">
+                        <input oninput="debounce(getData,500)" type="text" placeholder="Search character" id="query">
+                    </form>
+                </div>
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png" alt="">
+                </div>
+            </div>
+            <hr>
+            <div id="searchCont">
+                
+            </div>
+        </div>
+        <p id="not-found">No results found. Try again...</p>
+    </div>
+    <section id="viewCont">
+        
+    </section>
+    <audio src="./audio.mp3"></audio>
+</body>
+</html>
+
+<script src="./Script/index.js"></script>
+
+<script>
+    let audio = document.querySelector('audio');
+    let icon = document.querySelector("#play");
+    function play(){
+        if(audio.paused){
+            audio.play();
+            icon.src = "https://cdn-icons-png.flaticon.com/512/727/727269.png";
+        }
+        else{
+            audio.pause();
+            audio.currentTime = 0;
+            icon.src = "https://cdn-icons-png.flaticon.com/512/727/727240.png";
+        }
+    }
+</script>
